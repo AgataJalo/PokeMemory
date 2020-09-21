@@ -1,0 +1,68 @@
+/*main css settings*/
+
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    background-color: blue;
+    display: flex;
+}
+
+/*Board and cards*/
+
+.memory-game{
+    width:500px;
+    height:500px;
+    margin: auto; /*na body flex i tu auto dzięki temu jest po środku*/
+    display:flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.memory-card{
+    width: calc(25% - 10px);
+    height: calc(33.3333% - 10px);
+    position:relative;
+    margin:5px;
+    transform: scale(1);
+    transform-style: preserve-3d; /*3d obracanie*/
+    transition: transform .5s; /*3d obracanie*/
+}
+
+.memory-card:hover{
+    transform: rotateY(50deg);
+    transition: transform .5s;
+
+}
+
+.memory-card:active{
+    transform: rotateY(180deg);
+    transition: transform 1s;
+}
+
+.memory-card.flip{
+    transform: rotateY(180deg);
+}
+
+.front-face,
+.back-face{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    position: absolute;
+    border-radius: 5px;
+    background-color: dodgerblue;
+    backface-visibility: hidden;
+}
+
+.front-face{
+    transform: rotateY(180deg);
+}
+
+/* Reset game section*/
+
+
